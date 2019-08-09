@@ -5,7 +5,6 @@
 //  Created by Egor Tereshonok on 8/8/19.
 //  Copyright © 2019 Egor Tereshonok. All rights reserved.
 //
-
 import Foundation
 
 let SCENE_WIDTH = 15
@@ -17,7 +16,6 @@ let BARRIERS = ["🌳","🌋","🏫","🏢"]
 var stepsCount: Int = 0
 var currentBoxCount: Int = 0
 var bestResult: Int = 0
-
 class SceneObject {
     var symbol: String
     init(symbol: String) {
@@ -191,7 +189,7 @@ class Room {
             //check victory
             currentBoxCount = currentBoxCount - 1
             if currentBoxCount == 0 {
-                bestResult = stepsCount
+                if (stepsCount <= bestResult || bestResult == 0) {bestResult = stepsCount}
                 print("VICTORY! ENTER r TO RESTART")
             }
             
@@ -238,7 +236,7 @@ func updateUI() {
 }
 
 func printHintCommands() {
-    print("Put the boxes in the car")
+    print("Put boxes in the car")
     print("[r] - restart")
     print("STEP: \(stepsCount)  BOXES: \(currentBoxCount)  BEST: \(bestResult)")
     print("   [w]    - up")
@@ -265,6 +263,8 @@ func printHintCommands() {
     updateUI()
 }
 
+
 startGame()
 updateUI()
+
 
