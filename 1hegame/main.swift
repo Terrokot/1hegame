@@ -263,7 +263,6 @@ func printHintCommands() {
     updateUI()
 }
 
-
 startGame()
 updateUI()
 
